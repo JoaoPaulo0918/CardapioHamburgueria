@@ -1,4 +1,4 @@
-import imagens from '../dados/img/img'
+import imagens from "../dados/img/img"
 
 const hamburguers = {
     catsDaCasa:{
