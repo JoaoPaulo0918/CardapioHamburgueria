@@ -135,7 +135,7 @@ https://cardapio-hamburgueria-3ngg.vercel.app/${pedidoId}
 
 
         // Número do WhatsApp (com DDI +55)
-        const numero = "55819996050024";
+        const numero = "5581996050024";
         const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
 
         // Abre WhatsApp Web / Apps
