@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import { HiArrowLeft } from "react-icons/hi";
 import { FiMaximize, FiX } from "react-icons/fi";
 
+
 export default function Cardapio() {
     const location = useLocation();
     const cliente = location.state?.cliente || null;
