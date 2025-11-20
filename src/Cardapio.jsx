@@ -268,7 +268,7 @@ https://cardapio-hamburgueria-3ngg.vercel.app/${pedidoId}
 
             {/* POPUP */}
             {popupOpen && hamburguerSelecionado && (
-                <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex justify-center sm:px-1 items-center z-50 ">
+                <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex justify-center sm:px-1 items-center z-50 h-full gap-4">
                     {/* ZOOM */}
                     {zoom && (
                         <div
@@ -357,7 +357,7 @@ https://cardapio-hamburgueria-3ngg.vercel.app/${pedidoId}
                         </div>
 
                         {/* OBSERVAÇÃO */}
-                        <div className="px-3 mt-7">
+                        <div className="px-3 h-24 mt-7 mb-4 sm:mb-0 ">
                             <textarea
                                 className="w-full h-20 bg-black/20 border border-white/20 text-white rounded-xl p-2 outline-none"
                                 placeholder="Alguma observação?"
@@ -367,8 +367,8 @@ https://cardapio-hamburgueria-3ngg.vercel.app/${pedidoId}
                         </div>
 
                         {/* CONTADOR + PREÇO */}
-                        <div className="flex justify-between items-center px-3 mt-7 w-full">
-                            <p className="text-white w-full text-lg font-bold">
+                        <div className="flex justify-between items-center px-3 sm:-mt-2 mt-7 w-full">
+                            <p className="text-white w-full text-lg font-bold sm:-mt-3 ">
                                 R$ {(precoAtual * quantidade).toFixed(2).replace(".", ",")}
                             </p>
 

@@ -106,7 +106,7 @@ function Home() {
                 <nav className="fixed top-0 w-full h-14 bg-orange-950 px-6 flex items-center justify-between z-20 shadow">
 
                     {/* Ícone Hamburguer */}
-                    <div onClick={() => setOpen(true)} className="space-y-1.5 cursor-pointer">
+                    <div onClick={() => setOpen(true)} className="space-y-1.5 cursor-pointer outline outline-red-500">
                         <span className="block w-6 h-0.5 bg-white"></span>
                         <span className="block w-6 h-0.5 bg-white"></span>
                         <span className="block w-6 h-0.5 bg-white"></span>
@@ -114,7 +114,7 @@ function Home() {
 
                     {/* Títulos */}
                     <div className="text-center flex flex-col leading-4">
-                        <p className="text-sm text-white/20">catsburguer.home</p>
+                        <p className="text-sm text-white">catsburguer.home</p>
                         <p className="text-xs text-white/20">@catsburguer</p>
                     </div>
 
