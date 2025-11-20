@@ -113,10 +113,11 @@ function Home() {
                     </div>
 
                     {/* Títulos */}
-                    <div className="text-center flex flex-col leading-[0.90] sm:hidden">
+                    <div className="hidden sm:flex text-center flex-col leading-4">
                         <p className="text-sm text-white/20">catsburguer.home</p>
                         <p className="text-xs text-white/20">@catsburguer</p>
                     </div>
+
 
                     {/* Espaço para equilibrar */}
                     <div className="w-6"></div>
