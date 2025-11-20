@@ -107,9 +107,9 @@ function Home() {
 
                     {/* Ícone Hamburguer */}
                     <div onClick={() => setOpen(true)} className="space-y-1.5 cursor-pointer outline outline-red-500">
-                        <span className="block w-6 h-0.5 bg-white"></span>
-                        <span className="block w-6 h-0.5 bg-white"></span>
-                        <span className="block w-6 h-0.5 bg-white"></span>
+                        <span className="block w-7 h-[3px] bg-white"></span>
+                        <span className="block w-7 h-[3px] bg-white"></span>
+                        <span className="block w-7 h-[3px] bg-white"></span>
                     </div>
 
                     {/* Títulos */}
