@@ -7,7 +7,7 @@ export default async function handler(req, res) {
 
     const token = process.env.WHATSAPP_TOKEN;
     const phoneId = process.env.WHATSAPP_PHONE_ID;
-    const numeroDestino = "5581996050024"; // Seu WhatsApp
+    const numeroDestino = "5581933008837"; // Seu WhatsApp
 
     const mensagem = `
 🍔 *Cat's Burguer - Novo Pedido* 🍔
