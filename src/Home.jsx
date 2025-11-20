@@ -119,7 +119,7 @@ function Home() {
                     </div>
 
                     {/* Espaço para equilibrar */}
-                    <div className="w-6 sm:hidden"></div>
+                    <div className="w-6 sm:hidden bg-amber-300"></div>
                 </nav>
 
                 {/* OVERLAY */}
