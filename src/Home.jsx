@@ -113,13 +113,13 @@ function Home() {
                     </div>
 
                     {/* Títulos */}
-                    <div className="text-center flex flex-col leading-[0.90]">
-                        <p className="text-sm text-white">catsburguer.home</p>
+                    <div className="text-center flex flex-col leading-[0.90] sm:hidden">
+                        <p className="text-sm text-white/20">catsburguer.home</p>
                         <p className="text-xs text-white/20">@catsburguer</p>
                     </div>
 
                     {/* Espaço para equilibrar */}
-                    <div className="w-6 sm:hidden bg-amber-300"></div>
+                    <div className="w-6"></div>
                 </nav>
 
                 {/* OVERLAY */}
