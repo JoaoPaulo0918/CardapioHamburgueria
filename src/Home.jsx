@@ -232,7 +232,7 @@ function Home() {
                     </div>
 
                     {/* div botões cardápio e whatsapp*/}
-                    <div className=" w-2xl h-48 px-4 py-3 flex flex-col justify-center items-center gap-3 mt-9 mb-8 sm:mt-14 sm:mb-4 bg-amber-400">
+                    <div className=" w-full h-48 px-6 md:px-10 py-3 flex flex-col justify-center items-center gap-3 mt-9 mb-8 sm:mt-14 sm:mb-4 bg-amber-400">
 
                         {/* botão cardápio*/}
                         <button
