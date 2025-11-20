@@ -85,11 +85,10 @@ export default function Cardapio() {
                 : Number(hamburguerSelecionado.valorDuplo.replace(",", "."));
         const total = (precoUnitario * quantidade).toFixed(2).replace(".", ",");
 
-
         // Gerar ID único
         const pedidoId = "PED-" + Date.now();
 
-        // Salvar no localStorage para link de impressão
+        // Criar objeto do pedido
         const pedidoObj = {
             id: pedidoId,
             cliente,
@@ -101,48 +100,35 @@ export default function Cardapio() {
             pagamento,
             data: new Date().toLocaleString(),
         };
+
+        // Salvar local para a página de impressão
         localStorage.setItem(`pedido-${pedidoId}`, JSON.stringify(pedidoObj));
 
-        // Mensagem para WhatsApp
-const mensagem = `
-🍔 *Cat's Burguer - Novo Pedido* 🍔
-────────────────────────────
-🆔 Pedido: ${pedidoId} 
-📅 Data: ${pedidoObj.data}
+        // 🔗 Link direto para impressão
+        const linkImpressao = `https://cardapio-hamburgueria-amber.vercel.app/Pedido/${pedidoId}`;
 
-👤 Cliente:
-   Nome: ${cliente.nome}
-   Telefone: ${cliente.telefone}
-   Endereço: ${cliente.endereco}
-
-🍔 Pedido:
-   Item: ${hamburguerSelecionado.nome}
-   Tipo: ${tipo === "simples" ? "Simples" : "Duplo"}
-   Quantidade: ${quantidade}
-   Total: R$ ${total}
-
-💳 Forma de Pagamento:
-   ${pagamento || "Não informado"}
-
-📝 Observação:
-   ${observacao || "Nenhuma"}
-────────────────────────────
-🖨️ Imprima seu recibo: 
-https://cardapio-hamburgueria-amber.vercel.app/Pedido/${pedidoId}
-
-
-✅ Obrigado pela preferência!
-`;
-
-
-        // Número do WhatsApp (com DDI +55)
-        const numero = "5581996050024";
-        const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
-
-        // Abre WhatsApp Web / Apps
-        window.open(url, "_blank");
-
-        fecharPopup();
+        // 🚀 ENVIA PARA O BACKEND (Vercel API)
+        fetch("/api/enviar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                cliente,
+                pedido: pedidoObj,
+                linkImpressao,
+            }),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log("Resposta backend:", data);
+                alert("Pedido enviado para o WhatsApp da loja!");
+                fecharPopup();
+            })
+            .catch((err) => {
+                console.error("Erro:", err);
+                alert("Erro ao enviar pedido. Tente novamente.");
+            });
     };
 
 
@@ -401,11 +387,11 @@ https://cardapio-hamburgueria-amber.vercel.app/Pedido/${pedidoId}
                                     <p>Dinheiro</p>
                                 </div>
 
-                                <div  onClick={() => setPagamento("cartao")} className={`flex w-full justify-center gap-3 cursor-pointer ${pagamento === "cartao" ? "bg-orange-950 text-white" : ""}`}>
+                                <div onClick={() => setPagamento("cartao")} className={`flex w-full justify-center gap-3 cursor-pointer ${pagamento === "cartao" ? "bg-orange-950 text-white" : ""}`}>
                                     <p>Cartão</p>
                                 </div>
 
-                                <div  onClick={() => setPagamento("pix")} className={`flex w-full justify-center gap-3 cursor-pointer ${pagamento === "pix" ? "bg-orange-950 text-white" : ""}`}>
+                                <div onClick={() => setPagamento("pix")} className={`flex w-full justify-center gap-3 cursor-pointer ${pagamento === "pix" ? "bg-orange-950 text-white" : ""}`}>
                                     <p>Pix</p>
                                 </div>
                             </div>
