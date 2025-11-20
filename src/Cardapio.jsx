@@ -128,7 +128,8 @@ const mensagem = `
    ${observacao || "Nenhuma"}
 ────────────────────────────
 🖨️ Imprima seu recibo: 
-https://cardapio-hamburgueria-3ngg.vercel.app/${pedidoId}
+https://cardapio-hamburgueria-amber.vercel.app/Pedido/${pedidoId}
+
 
 ✅ Obrigado pela preferência!
 `;
