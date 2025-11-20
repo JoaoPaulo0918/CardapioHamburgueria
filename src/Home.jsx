@@ -122,7 +122,7 @@ function Home() {
                     <div className="w-6"></div>
                 </nav>
 
-                <nav className="fixed top-0 w-full h-14 bg-orange-950 px-6 flex items-center justify-between z-[99999] shadow">
+                <nav className="fixed top-52 w-full h-14 bg-orange-500 px-6 flex items-center justify-between z-[99] shadow">
 
                     {/* Ícone Hamburguer */}
                     <div onClick={() => setOpen(true)} className="space-y-1.5 cursor-pointer ">
