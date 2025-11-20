@@ -103,25 +103,25 @@ function Home() {
             {/* div geral*/}
             <div className="flex w-screen h-full font-sans py-5 px-4 justify-center bg-orange-950">
 
-                <nav className="fixed top-0 w-full h-14 overflow-hidden bg-orange-950 px-6 flex items-center justify-between z-50 shadow">
+                <nav className="fixed top-0 w-full h-14 bg-orange-950 px-6 flex items-center justify-between z-20 shadow">
 
                     {/* Ícone Hamburguer */}
-                    <div onClick={() => setOpen(true)} className="space-y-1.5 cursor-pointer ">
-                        <span className="block w-7 h-[3px] bg-white"></span>
-                        <span className="block w-7 h-[3px] bg-white"></span>
-                        <span className="block w-7 h-[3px] bg-white"></span>
+                    <div onClick={() => setOpen(true)} className="space-y-1.5 cursor-pointer">
+                        <span className="block w-6 h-0.5 bg-white"></span>
+                        <span className="block w-6 h-0.5 bg-white"></span>
+                        <span className="block w-6 h-0.5 bg-white"></span>
                     </div>
 
-                    {/* Títulos */}
+                    {/* Títulos – escondidos no mobile */}
                     <div className="hidden sm:flex text-center flex-col leading-4">
                         <p className="text-sm text-white/20">catsburguer.home</p>
                         <p className="text-xs text-white/20">@catsburguer</p>
                     </div>
 
-
                     {/* Espaço para equilibrar */}
                     <div className="w-6"></div>
                 </nav>
+
 
                 {/* OVERLAY */}
                 {open && (
