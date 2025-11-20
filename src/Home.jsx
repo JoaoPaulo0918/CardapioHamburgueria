@@ -125,11 +125,7 @@ function Home() {
                 <nav className="flex top-52 w-full h-14 bg-orange-500 px-6 items-center justify-around z-[99] shadow">
 
                     {/* Ícone Hamburguer */}
-                    <div onClick={() => setOpen(true)} className="space-y-1.5 cursor-pointer ">
-                        <span className="block w-7 h-[3px] bg-amber-500"></span>
-                        <span className="block w-7 h-[3px] bg-amber-500"></span>
-                        <span className="block w-7 h-[3px] bg-amber-500"></span>
-                    </div>
+                   
 
                     {/* Títulos */}
                     <div className="text-center flex flex-col leading-4">
@@ -138,7 +134,11 @@ function Home() {
                     </div>
 
                     {/* Espaço para equilibrar */}
-                    <div className="w-6"></div>
+                     <div onClick={() => setOpen(true)} className="space-y-1.5 cursor-pointer ">
+                        <span className="block w-7 h-[3px] bg-amber-800"></span>
+                        <span className="block w-7 h-[3px] bg-amber-800"></span>
+                        <span className="block w-7 h-[3px] bg-amber-800"></span>
+                    </div>
                 </nav>
 
 
