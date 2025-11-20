@@ -103,7 +103,7 @@ function Home() {
             {/* div geral*/}
             <div className="flex w-screen h-full font-sans py-5 px-4 justify-center bg-orange-950">
 
-                <nav className="fixed top-0 w-full sm:justify-center h-14 bg-orange-950 px-6 flex items-center justify-between z-20 shadow">
+                <nav className="fixed top-0 w-full h-14 bg-orange-950 px-6 flex items-center justify-between z-20 shadow pt-safe-offset">
 
                     {/* Ícone Hamburguer */}
                     <div onClick={() => setOpen(true)} className="space-y-1.5 cursor-pointer">

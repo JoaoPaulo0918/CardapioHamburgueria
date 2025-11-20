@@ -1,3 +1,7 @@
 body {
     background-color: #431407;
 }
+
+.pt-safe-offset {
+    padding-top: env(safe-area-inset-top);
+}
