@@ -201,7 +201,7 @@ function Home() {
                         </div>
 
                         {/* botoes com logos*/}
-                        <div className="flex gap-3 mt-5">
+                        <div className=" not-first-of-type:flex gap-3 mt-5">
                             {/* logo whatsapp*/}
                             <a
                                 href="https://wa.me/5581996050024"
@@ -232,7 +232,7 @@ function Home() {
                     </div>
 
                     {/* div botões cardápio e whatsapp*/}
-                    <div className=" w-2xl h-48 px-4 py-3 flex flex-col justify-center items-center gap-3 mt-9 mb-8 sm:mt-14 sm:mb-4">
+                    <div className=" w-2xl h-48 px-4 py-3 flex flex-col justify-center items-center gap-3 mt-9 mb-8 sm:mt-14 sm:mb-4 bg-amber-400">
 
                         {/* botão cardápio*/}
                         <button
