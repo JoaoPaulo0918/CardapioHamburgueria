@@ -7,35 +7,35 @@ export default async function handler(req, res) {
 
     const token = process.env.WHATSAPP_TOKEN;
     const phoneId = process.env.WHATSAPP_PHONE_ID;
-    const numeroDestino = "5581933008837"; // Seu WhatsApp
+    const numeroDestino = "5581933008837";
 
-    const mensagem = `
-🍔 *Cat's Burguer - Novo Pedido* 🍔
+    const mensagem =
+`🍔 *Cat's Burguer - Novo Pedido* 🍔
 ────────────────────────────
-🆔 Pedido: ${pedido.id} 
+🆔 Pedido: ${pedido.id}
 📅 Data: ${pedido.data}
 
-👤 Cliente:
+👤 *Cliente*
 - Nome: ${cliente.nome}
 - Telefone: ${cliente.telefone}
 - Endereço: ${cliente.endereco}
 
-🍔 Pedido:
+🍽️ *Pedido*
 - Item: ${pedido.nome}
 - Tipo: ${pedido.tipo}
 - Quantidade: ${pedido.quantidade}
 - Total: R$ ${pedido.total}
 
-📝 Observação:
+📝 *Observação*
 ${pedido.observacao || "Nenhuma"}
 
-🖨️ Imprimir pedido:
+🖨️ *Imprimir pedido*
 ${linkImpressao}
 `;
 
     try {
-        const enviar = await fetch(
-            `https://graph.facebook.com/v19.0/${phoneId}/messages`,
+        const response = await fetch(
+            `https://graph.facebook.com/v20.0/${phoneId}/messages`,
             {
                 method: "POST",
                 headers: {
@@ -51,9 +51,10 @@ ${linkImpressao}
             }
         );
 
-        const resposta = await enviar.json();
-        return res.status(200).json({ ok: true, resposta });
-    } catch (error) {
-        return res.status(500).json({ error: error.message });
+        const json = await response.json();
+        return res.status(200).json({ ok: true, json });
+
+    } catch (err) {
+        return res.status(500).json({ error: err.message });
     }
 }
