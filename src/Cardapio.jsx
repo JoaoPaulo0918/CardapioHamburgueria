@@ -129,7 +129,7 @@ ${linkImpressao}
     `;
 
     // 🔗 Enviar via WhatsApp Web
-    const numero = "5581933008837"; // número para onde vai o pedido
+    const numero = "5581996050024"; // número para onde vai o pedido
 
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
 
