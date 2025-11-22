@@ -73,63 +73,70 @@ export default function Cardapio() {
     const diminuir = () => setQuantidade((q) => Math.max(1, q - 1));
 
     //Confirmação do pedido
-    const confirmarPedido = () => {
-        if (!hamburguerSelecionado || !cliente) {
-            alert("Erro: Dados do cliente ou do pedido faltando!");
-            return;
-        }
+   const confirmarPedido = () => {
+    if (!hamburguerSelecionado || !cliente) {
+        alert("Erro: Dados do cliente ou do pedido faltando!");
+        return;
+    }
 
-        const precoUnitario =
-            tipo === "simples"
-                ? Number(hamburguerSelecionado.valorSimples.replace(",", "."))
-                : Number(hamburguerSelecionado.valorDuplo.replace(",", "."));
-        const total = (precoUnitario * quantidade).toFixed(2).replace(".", ",");
+    const precoUnitario =
+        tipo === "simples"
+            ? Number(hamburguerSelecionado.valorSimples.replace(",", "."))
+            : Number(hamburguerSelecionado.valorDuplo.replace(",", "."));
+    const total = (precoUnitario * quantidade).toFixed(2).replace(".", ",");
 
-        // Gerar ID único
-        const pedidoId = "PED-" + Date.now();
+    const pedidoId = "PED-" + Date.now();
 
-        // Criar objeto do pedido
-        const pedidoObj = {
-            id: pedidoId,
-            cliente,
-            nome: hamburguerSelecionado.nome,
-            tipo: tipo === "simples" ? "Simples" : "Duplo",
-            quantidade,
-            total,
-            observacao,
-            pagamento,
-            data: new Date().toLocaleString(),
-        };
-
-        // Salvar local para a página de impressão
-        localStorage.setItem(`pedido-${pedidoId}`, JSON.stringify(pedidoObj));
-
-        // 🔗 Link direto para impressão
-        const linkImpressao = `https://cardapio-hamburgueria-amber.vercel.app/Pedido/${pedidoId}`;
-
-        // 🚀 ENVIA PARA O BACKEND (Vercel API)
-        fetch("/api/enviar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                cliente,
-                pedido: pedidoObj,
-                linkImpressao,
-            }),
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                console.log("Resposta backend:", data);
-                alert("Pedido enviado para o WhatsApp da loja!");
-                fecharPopup();
-            })
-            .catch((err) => {
-                console.error("Erro:", err);
-                alert("Erro ao enviar pedido. Tente novamente.");
-            });
+    const pedidoObj = {
+        id: pedidoId,
+        cliente,
+        nome: hamburguerSelecionado.nome,
+        tipo: tipo === "simples" ? "Simples" : "Duplo",
+        quantidade,
+        total,
+        observacao,
+        pagamento,
+        data: new Date().toLocaleString(),
     };
+
+    localStorage.setItem(`pedido-${pedidoId}`, JSON.stringify(pedidoObj));
+
+    const linkImpressao = `https://cardapio-hamburgueria-amber.vercel.app/Pedido/${pedidoId}`;
+
+    // 📌 MONTAR MENSAGEM
+    const mensagem = `
+🍔 *Cat's Burguer - Novo Pedido* 🍔
+
+🆔 Pedido: ${pedidoObj.id}
+📅 Data: ${pedidoObj.data}
+
+👤 Cliente:
+- Nome: ${cliente.nome}
+- Telefone: ${cliente.telefone}
+- Endereço: ${cliente.endereco}
+
+🍔 Pedido:
+- Item: ${pedidoObj.nome}
+- Tipo: ${pedidoObj.tipo}
+- Quantidade: ${pedidoObj.quantidade}
+- Total: R$ ${pedidoObj.total}
+
+📝 Observação:
+${pedidoObj.observacao || "Nenhuma"}
+
+🖨️ Imprimir pedido:
+${linkImpressao}
+    `;
+
+    // 🔗 Enviar via WhatsApp Web
+    const numero = "5581933008837"; // número para onde vai o pedido
+
+    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+
+    // Abre o WhatsApp Web com a mensagem
+    window.open(url, "_blank");
+};
+
 
 
 
