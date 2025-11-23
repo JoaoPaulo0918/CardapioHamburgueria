@@ -11,7 +11,7 @@ function RoutesApp() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/Cardapio" element={<Cardapio key={Date.now()} />} />
-      <Route path="/Pedidos/:id" element={<Pedido />} />
+      <Route path="/pedidos/:id" element={<Pedido />} />
     </Routes>
   );
 }

@@ -101,7 +101,7 @@ export default function Cardapio() {
 
     localStorage.setItem(`pedido-${pedidoId}`, JSON.stringify(pedidoObj));
 
-    const linkImpressao = `https://cardapio-hamburgueria-amber.vercel.app/pedido/${pedidoId}`;
+    const linkImpressao = `https://cardapio-hamburgueria-amber.vercel.app/pedidos/${pedidoId}`;
 
     // 📌 MONTAR MENSAGEM
     const mensagem = `
