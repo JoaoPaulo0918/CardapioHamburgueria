@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
-export default function pedido() {
+export default function Pedido() {
   const { id } = useParams();
 
   // Recupera os dados do pedido do localStorage
