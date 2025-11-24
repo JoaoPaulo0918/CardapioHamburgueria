@@ -3,19 +3,19 @@ import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 
 
-//Deixa fundo branco
-useEffect(() => {
-  const old = document.body.style.background;
-  document.body.style.background = "white"; // fundo limpo
-
-  return () => {
-    document.body.style.background = old; // restaura ao sair
-  };
-}, []);
-
-
-
 export default function Pedido() {
+
+
+  //Deixa fundo branco
+  useEffect(() => {
+    const old = document.body.style.background;
+    document.body.style.background = "white"; // fundo limpo
+
+    return () => {
+      document.body.style.background = old; // restaura ao sair
+    };
+  }, []);
+
   const [params] = useSearchParams();
   const encoded = params.get("d");
 
