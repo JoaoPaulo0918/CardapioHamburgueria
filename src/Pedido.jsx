@@ -1,12 +1,12 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 export default function Pedido() {
-  const { id } = useParams();
+  const [params] = useSearchParams();
+  const encoded = params.get("d");
 
-  // Recupera os dados do pedido do localStorage
-  const pedidoJSON = localStorage.getItem(`pedido-${id}`);
-  const pedido = pedidoJSON ? JSON.parse(pedidoJSON) : null;
+  const pedido = encoded ? JSON.parse(atob(encoded)) : null;
+
 
   if (!pedido) {
     return (

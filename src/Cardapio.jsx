@@ -99,9 +99,9 @@ export default function Cardapio() {
         data: new Date().toLocaleString(),
     };
 
-    localStorage.setItem(`pedido-${pedidoId}`, JSON.stringify(pedidoObj));
+    const pedidoCodificado = btoa(JSON.stringify(pedidoObj));
 
-    const linkImpressao = `https://cardapio-hamburgueria-amber.vercel.app/pedido/${pedidoId}`;
+    const linkImpressao = `https://cardapio-hamburgueria-amber.vercel.app/pedido?d=${pedidoCodificado}`;
 
     // 📌 MONTAR MENSAGEM
     const mensagem = `
