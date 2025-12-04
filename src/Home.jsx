@@ -157,7 +157,8 @@ function Home() {
                             className=""
                         >Contato
                         </a></li>
-                        <li className="cursor-pointer hover:text-red-600 transition">Sobre</li>
+                        <li className="cursor-pointer hover:text-red-600 transition"><Link to="/Sobre" className="cursor-pointer hover:text-red-600 transition">
+                        Sobre</Link></li>
                     </ul>
 
                     {/*div de desenvolvedor*/}
